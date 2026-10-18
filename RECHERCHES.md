@@ -11,23 +11,26 @@
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+JavaScript renvoie "object" avec typeof null à cause d'une ancienne erreur du langage. Les développeurs ont gardé ce comportement pour ne pas casser les anciens programmes. Pourtant, null représente une absence de valeur et ce n'est pas un objet.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```let ville = null;
+console.log(typeof ville); // "object"
+console.log(ville === null); // true
+````
 
-**Source :** 
+**Source :**MDN 
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui. Prompt : « Explique pourquoi typeof null renvoie object ». J'ai vérifié la réponse sur MDN.
 
 ## F2 — Le convertisseur de saisie
 
 **Question :** Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utiliser pour le détecter ?
 
-**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**NaN veut dire « Not a Number ». JavaScript utilise cette valeur quand un résultat ne représente pas un nombre valide. NaN === NaN renvoie false, même si on compare NaN avec lui-même. Pour le détecter, on peut utiliser Number.isNaN().
 
 ...
 
@@ -35,9 +38,12 @@
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```let resultat = Number("bonjour");
+console.log(resultat); // NaN
+console.log(NaN === NaN); // false
+console.log(Number.isNaN(resultat)); // true
 
-**Source :** 
+**Source :** MDN-NaN
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
