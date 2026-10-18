@@ -36,18 +36,22 @@ Pourquoi var est-il banni du code moderne ? Cherche ce que sont la portée de fo
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 // Mes prédictions (avant d'exécuter) :
-//
+// Kinshasa puis erreur commune n'est pas defini
 
+//===========Raison de refus d'execution==========
+// commune est déclarée dans le scope if avec const : elle est accessible uniquement dans ce scope. Il faut donc afficher commune à l'intérieur du scope.
+
+//========= code corrigé=========
 const ville = 'Kinshasa';
 if (true) {
   const commune = 'Gombe';
   console.log(ville);
-}
 console.log(commune);
-
+} // j'ai fais entre le console log dans le scope if
 const afficher = () => {
   const secret = 'pondu';
   return secret;
 };
 console.log(afficher());
-console.log(secret);
+//console.log(secret); secret est déclarée à l'intérieur de afficher : elle est accessible uniquement dans cette fonction. 
+//donc si je décomente ça affiche erreur

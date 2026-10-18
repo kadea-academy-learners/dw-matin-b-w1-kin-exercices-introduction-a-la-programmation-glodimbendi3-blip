@@ -20,4 +20,19 @@ Recherche (à rédiger dans RECHERCHES.md) :
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+//---------Version-1--------
+for(let i = 10; i>=1; i = i-1){
+    if(i===5){continue} 
+    console.log(i);
+}
+console.log('Décollage')
+
+
+//----------boucle-modifié-nombres pair
+for(let i = 10; i>=1; i = i-1){
+    if(i%2===0){
+        console.log(i);
+    }
+}
+
 

@@ -20,4 +20,18 @@ Quelle est la liste complète des valeurs falsy en JavaScript ? (Indice : il y e
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
-
+const verifierStatutFormulaire= (estRempli)=>{
+    return  estRempli ?
+    "rempli": "vide"
+}
+//=============Teste et comparaison
+console.log(verifierStatutFormulaire(''))
+console.log(verifierStatutFormulaire('Esther'))
+console.log(verifierStatutFormulaire(0))
+console.log(verifierStatutFormulaire(42))
+console.log(verifierStatutFormulaire(null))
+console.log(verifierStatutFormulaire(undefined))
+console.log(verifierStatutFormulaire(NaN))
+console.log(verifierStatutFormulaire(' '))
+console.log(verifierStatutFormulaire('0'))
+console.log(verifierStatutFormulaire(false))

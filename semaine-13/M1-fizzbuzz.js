@@ -20,4 +20,19 @@ Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeu
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
+for(let i = 1; i<=30; i++){
+    if(i%3===0 && i%5===0){
+        console.log('MalewaWewa');
+    }
+    else if(i%3===0){
+        console.log('Malewa');
+    }
+    else if(i%5===0){
+        console.log("Wewa")
+    }
+    else{console.log(i)};
+}
 
+// L'ordre est important : le cas multiple de 3 ET de 5 doit être testé en premier.
+// Sinon, un nombre comme 15 satisfait déjà la condition i % 3 === 0.
+// JavaScript exécute alors cette branche et ignore les autres branches du if / else if.

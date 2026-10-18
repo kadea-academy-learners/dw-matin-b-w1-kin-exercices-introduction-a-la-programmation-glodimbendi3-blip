@@ -24,4 +24,10 @@ Quand peut-on enlever les parenthèses autour des paramètres, et quand peut-on 
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
-
+//function saluer(prenom) { return 'Mbote ' + prenom + ' !'; }
+const saluer = (prenom) => `Mbote ${prenom} !`;
+const carre = (nombre) => {
+    return nombre * nombre;
+};
+console.log(saluer('Lys'));
+console.log(carre(7));

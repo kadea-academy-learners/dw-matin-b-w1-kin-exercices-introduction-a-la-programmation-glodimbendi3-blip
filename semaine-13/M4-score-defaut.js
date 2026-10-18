@@ -22,5 +22,27 @@ Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de 
 // ===== FIN ÉNONCÉ =====
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
+const afficherScoreBug=(score) =>{
+    return `score : ${score || 'aucun'}`
+}
+console.log(afficherScoreBug(15))
+console.log(afficherScoreBug(0))
+console.log(afficherScoreBug(undefined));
 
+//Version corrigée
+const afficherScore=(score) =>{
+    return `score : ${score ?? 'aucun'}`
+}
+console.log(afficherScore(15))
+console.log(afficherScore(0))
+console.log(afficherScore(undefined));
+// Avec ||, 0 est considéré comme falsy.
+// La valeur 'aucun' est donc utilisée à la place de 0.
+// Avec ??, seul null ou undefined déclenche la valeur par défaut.
 
+//==========BONUS========
+let estConnecte = true;
+
+estConnecte && console.log('Bienvenue !');
+
+//Le message s'affiche si estConnecte est truthy. Si la valeur est falsy, console.log() n'est pas exécuté.

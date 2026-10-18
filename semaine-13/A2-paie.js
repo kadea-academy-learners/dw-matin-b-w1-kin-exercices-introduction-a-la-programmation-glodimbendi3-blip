@@ -22,3 +22,51 @@ La méthode .reduce() n'a pas été vue en atelier. Explique ce qu'elle fait et 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
 
+const heuresSemaine = [8, 9, 10, 8, 7, 6];
+const joursSemaine = [
+  "lundi",
+  "mardi",
+  "mercredi",
+  "jeudi",
+  "vendredi",
+  "samedi"
+];
+
+// Je  calcule le total des heures avec forEach()
+let totalHeures = 0;
+
+heuresSemaine.forEach((heures) => {
+  totalHeures += heures;
+});
+
+// Je  calcule le salaire avec les heures supplémentaires
+const calculerSalaire = (heures, tauxHoraire = 2500) => {
+  const heuresNormales = Math.min(heures, 40);
+  const heuresSupplementaires = Math.max(heures - 40, 0);
+
+  const salaireNormal = heuresNormales * tauxHoraire;
+  const salaireSupplementaire =
+    heuresSupplementaires * tauxHoraire * 1.5;
+
+  return salaireNormal + salaireSupplementaire;
+};
+
+const salaire = calculerSalaire(totalHeures);
+
+// je cherche à trouver le jour le plus chargé avec une boucle for
+let indexJourCharge = 0;
+
+for (let i = 1; i < heuresSemaine.length; i++) {
+  if (heuresSemaine[i] > heuresSemaine[indexJourCharge]) {
+    indexJourCharge = i;
+  }
+}
+
+const jourPlusCharge = joursSemaine[indexJourCharge];
+
+// ici j'Afficher les résultats
+console.log(`Total : ${totalHeures} h`);
+console.log(`Salaire : ${salaire} FC`);
+console.log(
+  `Jour le plus chargé : ${jourPlusCharge} (${heuresSemaine[indexJourCharge]} h)`
+);
