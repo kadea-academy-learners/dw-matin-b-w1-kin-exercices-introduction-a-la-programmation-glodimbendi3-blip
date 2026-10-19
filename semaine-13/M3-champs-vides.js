@@ -20,18 +20,31 @@ Quelle est la liste complète des valeurs falsy en JavaScript ? (Indice : il y e
 
 // ✍️ Ton code ici 👇 (règles : const/let, ===, gabarits littéraux, fonctions fléchées, camelCase)
 
-const verifierStatutFormulaire= (estRempli)=>{
-    return  estRempli ?
-    "rempli": "vide"
-}
-//=============Teste et comparaison
-console.log(verifierStatutFormulaire(''))
-console.log(verifierStatutFormulaire('Esther'))
-console.log(verifierStatutFormulaire(0))
-console.log(verifierStatutFormulaire(42))
-console.log(verifierStatutFormulaire(null))
-console.log(verifierStatutFormulaire(undefined))
-console.log(verifierStatutFormulaire(NaN))
-console.log(verifierStatutFormulaire(' '))
-console.log(verifierStatutFormulaire('0'))
-console.log(verifierStatutFormulaire(false))
+// 1. Fonction 
+const estRempli = (valeur) => {
+    return valeur ? "rempli" : "vide";
+};
+
+// 2. Mes prédictions avant les tests
+// ''         → vide
+// 'Esther'   → rempli
+// 0          → vide
+// 42         → rempli
+// null       → vide
+// undefined  → vide
+// NaN        → vide
+// ' '        → rempli
+// '0'        → rempli
+// false      → vide
+
+// 3. mes Tests
+console.log(estRempli(''));         
+console.log(estRempli('Esther'));   
+console.log(estRempli(0));          
+console.log(estRempli(42));         
+console.log(estRempli(null));       
+console.log(estRempli(undefined));  
+console.log(estRempli(NaN));        
+console.log(estRempli(' '));        
+console.log(estRempli('0'));        
+console.log(estRempli(false));      
