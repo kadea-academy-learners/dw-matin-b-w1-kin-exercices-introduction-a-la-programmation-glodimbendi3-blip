@@ -1,221 +1,359 @@
-RECHERCHES — Semaine 13
-Pour chaque exercice : reformule avec tes mots (pas de copier-coller), ajoute un test que tu as exécuté toi-même,
-et cite une source précise (une page, pas juste « Google »). MDN en français est la référence.
-Si tu as utilisé une IA, indique ton prompt et vérifie sa réponse sur MDN.
-Ne modifie pas les titres ## F1 — … : ils servent à l'évaluation automatique.
-F1 — Ma carte d'apprenant
+# RECHERCHES — Semaine 13
 
-Question : Pourquoi typeof null renvoie-t-il 'object' alors que null n'est pas un objet ?
+> Pour chaque exercice : reformule avec tes mots (pas de copier-coller), ajoute un test que tu as exécuté toi-même,
+> et cite une source précise (une page, pas juste « Google »). MDN en français est la référence.
+> Si tu as utilisé une IA, indique ton prompt et vérifie sa réponse sur MDN.
+> Ne modifie pas les titres `## F1 — …` : ils servent à l'évaluation automatique.
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+## F1 — Ma carte d'apprenant
 
-JavaScript renvoie "object" avec typeof null à cause d'un ancien choix de conception du langage. À l'origine, null était représenté d'une manière qui correspondait au marqueur de type des objets. Ce comportement a été conservé pour éviter de casser les anciens programmes. Pourtant, null représente une absence de valeur et ce n'est pas un objet.
+**Question :** Pourquoi typeof null renvoie-t-il 'object' alors que null n'est pas un objet ?
 
-Mon test dans la console :
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+C'est une ancienne erreur de JavaScript qui existe depuis sa création. cette erreur a été concervée pour ne pas 
+casser les anciens programmes.
 
-let ville = null;
-console.log(typeof ville); // "object"
-console.log(ville === null); // true
+**Mon test dans la console :**
 
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+let age = null;
+console.log(typeof age);
 
-Source : MDN — typeof
+**Source :** MDN
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique pourquoi typeof null renvoie object ». J'ai vérifié la réponse sur MDN, dans la section typeof null.
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-F2 — Le convertisseur de saisie
+## F2 — Le convertisseur de saisie
 
-Question : Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utiliser pour le détecter ?
+**Question :** Qu'est-ce que NaN, et pourquoi NaN === NaN renvoie false ? Quelle fonction utiliser pour le détecter ?
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-NaN veut dire « Not a Number ». JavaScript utilise cette valeur lorsqu'une opération numérique ne produit pas un nombre valide. NaN === NaN renvoie false, car NaN est une valeur particulière qui n'est égale à aucune valeur, même à elle-même. Pour la détecter correctement, on peut utiliser Number.isNaN().
+*NaN signifie Not-a-Number; c'est une valeur spéciale de javaScript qui represente un résultat numérique invalide genre qui n'est pas un nombre
+*NaN===NaN renvoie false parce que JavaScript considère que NaN n'est égal à aucune valeur, même pas lui même.
+*Pour détecter NaN, on utilise Number.isNaN(valeur).
 
-Mon test dans la console :
+**Mon test dans la console :**
 
-let resultat = Number("bonjour");
-console.log(resultat); // NaN
-console.log(NaN === NaN); // false
-console.log(Number.isNaN(resultat)); // true
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```Console.log(Number.isNaN(NaN));
+Console.log(Number.isNaN(15));
 
+**Source :** MDN
 
-Source : MDN — Number.isNaN()
+**IA utilisée ? (prompt + vérification sur MDN) :** oui; Je débute avec JavaScript, je veux que tu m'explique NaN, tu te refere sur MDN.
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique NaN, pourquoi NaN === NaN renvoie false et comment le détecter ». J'ai vérifié le fonctionnement de Number.isNaN() sur MDN.
+## F3 — Pair ou impair : le tirage des tickets
 
-F3 — Pair ou impair : le tirage des tickets
+**Question :** Que renvoie -7 % 2 ? Déduis-en pourquoi il vaut mieux tester % 2 !== 0 plutôt que % 2 === 1 pour détecter un nombre impair.
 
-Question : Que renvoie -7 % 2 ? Déduis-en pourquoi il vaut mieux tester % 2 !== 0 plutôt que % 2 === 1 pour détecter un nombre impair.
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+-7 % 2 renvoie -1 car le % renvoie le reste de la division. pour detecter un nombre impair, on peut écrire % 2 === 1 mais si le nombre est negatif la condition échoue donc le methode plus fiable est % 2 ! == 0, parce que nombre entier impair peut avoir un reste égal à 1
 
-L'expression -7 % 2 renvoie -1, car le reste garde le signe du nombre de départ. Un nombre impair positif peut donner un reste de 1, mais un nombre impair négatif peut donner -1. Tester % 2 === 1 ne détecte donc pas tous les nombres impairs. Il vaut mieux utiliser % 2 !== 0.
+**Mon test dans la console :**
 
-Mon test dans la console :
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+``` dans mes code j'ai tester 3 methodes 
+let nombre = -7; 
+console.log(nombre % 2 === 1);//false
+ console.log(nombre % 2 !== 0) //true
+ nombre= Number("-7");
+ console.log (nombre % 2 === 1);
 
-console.log(-7 % 2); // -1
-console.log(7 % 2); // 1
-console.log(-7 % 2 !== 0); // true
-console.log(-7 % 2 === 1); // false
+**Source :** MDN
 
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-Source : MDN — Opérateur reste (%)
+## F4 — Le contrôleur du bus
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique le résultat de -7 % 2 et comment détecter un nombre impair ». J'ai vérifié le comportement de l'opérateur % sur MDN.
+**Question :** Peut-on enchaîner plusieurs ternaires ? Pourquoi est-ce souvent déconseillé ?
 
-F4 — Le contrôleur du bus
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-Question : Peut-on enchaîner plusieurs ternaires ? Pourquoi est-ce souvent déconseillé ?
+...oui , c'est déconseillé parce que le code devient difficile.
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+**Mon test dans la console :**
+let temperature = 15;
+let resultat = temperature >= 30 ? "chaud" : 
+temperature >= 20 ? "Normal" : "Froid";
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```Froid
 
-Oui, on peut enchaîner plusieurs opérateurs ternaires pour tester plusieurs conditions. Cependant, le code devient rapidement difficile à lire et à comprendre. Pour plusieurs cas, il est souvent préférable d'utiliser if...else ou switch. Cela rend les conditions plus claires et facilite les corrections.
+**Source :** MDN
 
-Mon test dans la console :
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-const age = 17;
-const resultat = age >= 18 ? "Adulte" : age >= 12 ? "Adolescent" : "Enfant";
-console.log(resultat); // "Adolescent"
+## F5 — Ma première fonction fléchée
 
-if (age >= 18) {
-  console.log("Adulte");
-} else if (age >= 12) {
-  console.log("Adolescent");
-} else {
-  console.log("Enfant");
-}
-// Affiche "Adolescent"
+**Question :** Quand peut-on enlever les parenthèses autour des paramètres, et quand peut-on enlever return et les accolades ?
 
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lorsque la fonction contient une seule expression
+...
 
-Source : MDN — Opérateur conditionnel (ternaire)
+**Mon test dans la console :**
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Peut-on enchaîner les opérateurs ternaires et pourquoi éviter de trop les utiliser ? ». J'ai vérifié la syntaxe sur MDN.
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-F5 — Ma première fonction fléchée
+**Source :** 
 
-Question : Quand peut-on enlever les parenthèses autour des paramètres, et quand peut-on enlever return et les accolades ?
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+## F6 — Le compte à rebours
 
-On peut enlever les parenthèses autour des paramètres lorsqu'une fonction fléchée possède exactement un seul paramètre. Avec zéro ou plusieurs paramètres, les parenthèses sont nécessaires. On peut aussi enlever les accolades et return lorsque la fonction retourne directement une seule expression. Si le corps contient plusieurs instructions, on garde les accolades et on écrit return si nécessaire.
+**Question :** À quoi sert le mot-clé continue ? Quelle différence avec break ?
 
-Mon test dans la console :
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-const doubler = nombre => nombre * 2;
-const additionner = (a, b) => a + b;
-const afficher = () => "Bonjour";
+...
 
-console.log(doubler(4)); // 8
-console.log(additionner(3, 5)); // 8
-console.log(afficher()); // "Bonjour"
+**Mon test dans la console :**
 
-const carre = nombre => {
-  return nombre * nombre;
-};
-console.log(carre(3)); // 9
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
+**Source :** 
 
-Source : MDN — Fonctions fléchées
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique quand enlever les parenthèses, les accolades et return dans une fonction fléchée ». J'ai vérifié les règles sur MDN.
+## M1 — FizzBuzz kinois
 
-F6 — Le compte à rebours
+**Question :** Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeurs ?
 
-Question : À quoi sert le mot-clé continue ? Quelle différence avec break ?
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+...
 
-Le mot-clé continue permet de passer directement à l'itération suivante d'une boucle sans exécuter le reste du code de l'itération actuelle. Au contraire, break arrête complètement la boucle. continue est utile lorsqu'on veut ignorer certaines valeurs, tandis que break sert à sortir de la boucle dès qu'une condition est remplie.
+**Mon test dans la console :**
 
-Mon test dans la console :
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-for (let i = 1; i <= 5; i++) {
-  if (i === 2) {
-    continue;
-  }
-  if (i === 4) {
-    break;
-  }
-  console.log(i);
-}
-// Affiche 1 puis 3
+**Source :** 
 
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-Source : MDN — continue et MDN — break
+## M2 — Le distributeur automatique (DAB)
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique la différence entre continue et break dans une boucle JavaScript ». J'ai vérifié les deux instructions sur MDN.
+**Question :** Comment afficher 75000 sous la forme 75 000 avec toLocaleString() ?
 
-M1 — FizzBuzz kinois
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-Question : Pourquoi FizzBuzz est-il célèbre dans les entretiens d'embauche de développeurs ?
+...
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+**Mon test dans la console :**
 
-FizzBuzz est un exercice connu qui consiste à parcourir une série de nombres et à remplacer certains nombres par des mots selon des règles. Il est utilisé pour vérifier si une personne maîtrise les conditions, les boucles et l'opérateur modulo. Même s'il est simple, il permet de voir si le candidat sait transformer une consigne en programme fonctionnel. Il sert souvent de petit exercice d'introduction lors d'un entretien technique.
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-Mon test dans la console :
+**Source :** 
 
-for (let i = 1; i <= 15; i++) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log("FizzBuzz");
-  } else if (i % 3 === 0) {
-    console.log("Fizz");
-  } else if (i % 5 === 0) {
-    console.log("Buzz");
-  } else {
-    console.log(i);
-  }
-}
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
+## M3 — Le détecteur de champs vides (Truthy / Falsy)
 
-Source : Wikipedia — Fizz buzz
+**Question :** Quelle est la liste complète des valeurs falsy en JavaScript ? (Indice : il y en a plus que dans cet exercice.)
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Explique pourquoi FizzBuzz est un exercice courant en entretien de programmation ». J'ai vérifié le principe de l'exercice avec la source indiquée.
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-M2 — Le distributeur automatique (DAB)
+...
 
-Question : Comment afficher 75000 sous la forme 75 000 avec toLocaleString() ?
+**Mon test dans la console :**
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-La méthode toLocaleString() transforme un nombre en texte en utilisant les règles de présentation d'une langue ou d'une région. Pour afficher un espace comme séparateur des milliers, on peut choisir la locale française fr-FR. Le nombre 75000 sera alors présenté sous la forme 75 000. Le résultat obtenu est une chaîne de caractères.
+**Source :** 
 
-Mon test dans la console :
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-const montant = 75000;
-console.log(montant.toLocaleString("fr-FR")); // "75 000" (espace de groupement)
-console.log(typeof montant.toLocaleString("fr-FR")); // "string"
+## M4 — Le score par défaut : || contre ??
 
+**Question :** Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de || ?
 
-Source : MDN — Number.prototype.toLocaleString()
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Comment formater 75000 en 75 000 avec toLocaleString() en JavaScript ? ». J'ai vérifié la méthode et la locale sur MDN.
+...
 
-M3 — Le détecteur de champs vides (Truthy / Falsy)
+**Mon test dans la console :**
 
-Question : Quelle est la liste complète des valeurs falsy en JavaScript ? (Indice : il y en a plus que dans cet exercice.)
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+**Source :** 
 
-Les valeurs falsy sont les valeurs qui deviennent false lorsqu'elles sont converties en booléen. En JavaScript, elles sont false, 0, -0, 0n, "", null, undefined et NaN. Le cas particulier document.all est également falsy dans les environnements où il existe. Toutes les autres valeurs sont truthy, y compris les tableaux et les objets vides.
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-Mon test dans la console :
+## M5 — La vitre teintée (portée de bloc)
 
-const valeurs = [false, 0, -0, 0n, "", null, undefined, NaN];
+**Question :** Pourquoi var est-il banni du code moderne ? Cherche ce que sont la portée de fonction et le « hoisting ».
 
-for (const valeur of valeurs) {
-  console.log(valeur, Boolean(valeur));
-}
-// Chaque valeur affiche false pour sa conversion en booléen.
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
+...
 
-Source : MDN — Valeurs falsy
+**Mon test dans la console :**
 
-IA utilisée ? (prompt + vérification sur MDN) : Oui. Prompt : « Donne la liste complète des valeurs falsy en JavaScript ». J'ai vérifié la liste sur MDN.
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
 
-M4 — Le score par défaut : || contre ??
+**Source :** 
 
-Question : Que fait l'opérateur ?? (coalescence des nuls) et en quoi est-il différent de || ?
+**IA utilisée ? (prompt + vérification sur MDN) :** non
 
-Ma réponse (avec mes mots, 3 à 5 lignes) :
+## M6 — Le détective du return
 
-L'opérateur ?? utilise la valeur de droite uniquement si celle de gauche vaut null ou undefined. L'opérateur ||, lui, utilise la valeur de droite si celle de gauche est falsy, par exemple 0, false ou une chaîne vide. Ainsi, `??
+**Question :** Le troisième bug vient de l'« insertion automatique de point-virgule » (ASI). Explique ce mécanisme en 3 lignes.
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## M7 — La tirelire numérique
+
+**Question :** Cite tous les opérateurs d'affectation composée (+=, -=…) et donne un exemple pour chacun.
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## M8 — La batterie qui se décharge
+
+**Question :** Quelle est la différence entre while et do...while ? Que donnerait l'étape 4 avec un do...while ?
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## A1 — Kadea Express v2 : le calculateur de livraison
+
+**Question :** Pourquoi 0.1 + 0.2 ne donne-t-il pas 0.3 en JavaScript ? Et pourquoi toFixed() est un piège si on veut continuer à calculer ?
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## A2 — Le moteur de paie v2
+
+**Question :** La méthode .reduce() n'a pas été vue en atelier. Explique ce qu'elle fait et réécris l'étape 2 avec elle.
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## A3 — L'inventaire en console
+
+**Question :** Comment afficher seulement les colonnes nom et stock avec console.table() ? Et que renvoient .find() et .filter() quand rien ne correspond ?
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## A4 — Le classement de la promo
+
+**Question :** Comment classer le bulletin de la meilleure à la moins bonne moyenne avec .sort() ? Pourquoi .sort() modifie-t-il le tableau d'origine, et comment l'éviter ?
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
+
+## A5 — Le nombre mystère
+
+**Question :** Explique la « recherche dichotomique » et pourquoi 7 essais suffisent toujours pour trouver un nombre entre 1 et 100.
+
+**Ma réponse (avec mes mots, 3 à 5 lignes) :**
+
+...
+
+**Mon test dans la console :**
+
+```js
+// colle ici le test que tu as exécuté et le résultat obtenu
+```
+
+**Source :** 
+
+**IA utilisée ? (prompt + vérification sur MDN) :** non
