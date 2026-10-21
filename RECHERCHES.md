@@ -100,9 +100,13 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```const saluer = nom => {
+    return "Bonjour " + nom;
+};
 
-**Source :** 
+console.log(saluer("Glodi"));
+
+**Source :** MDN
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
@@ -112,15 +116,21 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+...continue sert à saute le tour actuel et passe au tour suivant de la boucle. tandisque break arrête complètement la boucle, même si elle devait continuer.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```for (let i = 1; i <= 5; i++) {
+    if (i === 3) {
+        break;
+    }
 
-**Source :** 
+    console.log(i);
+}
+
+**Source :** MDN
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
@@ -130,7 +140,12 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+...parce qu'il permet de vérifier plusieurs compétences fondamentales :
+- Les boucles : sais-tu parcourir plusieurs nombres avec for ?
+- Les conditions : sais-tu utiliser if, else if et else ?
+- Le modulo % : sais-tu vérifier si un nombre est divisible par un autre ?
+- L'ordre des conditions : sais-tu vérifier le cas le plus spécifique avant les cas plus généraux ?
+- La logique : peux-tu transformer des règles écrites en instructions exécutables ?
 
 **Mon test dans la console :**
 
@@ -138,7 +153,7 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
 
-**Source :** 
+**Source :** non
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
@@ -147,6 +162,7 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 **Question :** Comment afficher 75000 sous la forme 75 000 avec toLocaleString() ?
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
+console.log(nombre.toLocaleString("fr-FR"));
 
 ...
 
@@ -154,11 +170,15 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```let nombre = 75000;
 
-**Source :** 
+console.log(nombre.toLocaleString("fr-FR"));
+// Résultat : 75 000
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**Source :** MDN
+
+**IA utilisée ? (prompt + vérification sur MDN) :** oui, je debute avec JavaScript, je vais que tu m'apprend la notion (toLocaleString),
+méthode : explication simple compréhensible et des exercices demo, à la fin un quiz de 10 questions pour m'évaluer.
 
 ## M3 — Le détecteur de champs vides (Truthy / Falsy)
 
@@ -167,6 +187,14 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
 ...
+false	 //La valeur booléenne fausse
+0	     //Le nombre zéro
+-0	    //Le zéro négatif
+0n	    //Le zéro de type BigInt
+""	    // Une chaîne vide
+null	// L'absence volontaire de valeur
+undefined// 	Une valeur non définie
+NaN	  // Un résultat numérique invalide
 
 **Mon test dans la console :**
 
@@ -174,7 +202,7 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
 
-**Source :** 
+**Source :** MDN
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
@@ -184,17 +212,21 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+...?? (coalescence des nuls) permet de donner une valeur par défaut uniquement lorsque la valeur est null ou undefined.
+La différence avec || est que || utilise la valeur par défaut lorsque la valeur de gauche est falsy.
 
 **Mon test dans la console :**
 
 ```js
 // colle ici le test que tu as exécuté et le résultat obtenu
-```
+```let age = 0;
 
-**Source :** 
+console.log(age ?? 18); // 0
 
-**IA utilisée ? (prompt + vérification sur MDN) :** non
+**Source :** MDN
+
+**IA utilisée ? (prompt + vérification sur MDN) :** Oui, j'apprend JavaScript, aujourd'hui je vais que tu m'apprend la notion ??, 
+et sa différence avec ||
 
 ## M5 — La vitre teintée (portée de bloc)
 
@@ -202,7 +234,7 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 
 **Ma réponse (avec mes mots, 3 à 5 lignes) :**
 
-...
+...En JavaScript moderne, on déconseille var principalement parce que sa manière de gérer la portée des variables et le hoisting peut provoquer des erreurs difficiles à repérer. On préfère généralement let et const.
 
 **Mon test dans la console :**
 
@@ -210,7 +242,7 @@ on peut enlever la parenthèse s'il n y a un seul paramètre, les accolades lors
 // colle ici le test que tu as exécuté et le résultat obtenu
 ```
 
-**Source :** 
+**Source :**MDN 
 
 **IA utilisée ? (prompt + vérification sur MDN) :** non
 
